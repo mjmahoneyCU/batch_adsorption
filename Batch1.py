@@ -5,7 +5,7 @@ from scipy.integrate import solve_ivp
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="Batch Adsorption Simulator", layout="wide")
-st.title("🧪 Batch Adsorption Simulator")
+st.title("Batch Adsorption Simulator")
 
 # --- WIDER IMAGE ---
 st.image("BatchExp.png", use_container_width=True)
