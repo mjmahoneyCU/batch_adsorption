@@ -10,7 +10,7 @@ st.title("Batch Adsorption Simulator")
 # --- WIDER IMAGE ---
 st.image("BatchExp.png", use_container_width=True)
 
-st.write("Simulates a batch adsorption system using Langmuir kinetics and a material balance model.")
+st.write("Simulates a batch adsorption system using Langmuir kinetics and material balances.")
 
 # --- CONTEXTUAL DESCRIPTIONS ---
 with st.expander("ℹ️ Simulation Parameter Descriptions", expanded=True):
@@ -19,7 +19,7 @@ with st.expander("ℹ️ Simulation Parameter Descriptions", expanded=True):
 
     - **Initial Concentration (C₀)**: The starting concentration of protein in the liquid phase (mg/mL). Higher values mean more protein is available for adsorption.
 
-    - **Adsorption Rate Constant (k)**: A lumped kinetic parameter (1/min) that captures how quickly adsorption occurs. It reflects both mass transfer limitations and surface reaction kinetics.
+    - **Adsorption Rate Constant (k)**: A lumped kinetic parameter (1/min) that captures how quickly adsorption occurs. It reflects both mass transfer limitations and adsorption kinetics.
 
     - **Langmuir Constant (KL)**: Defines how tightly the protein binds to the resin. A lower value means tighter binding (higher affinity); a higher value indicates weaker binding.
 
@@ -35,7 +35,7 @@ V_solution = 5.0  # mL
 # --- SIDEBAR USER INPUT ---
 st.sidebar.header("Adjust Simulation Parameters")
 c0 = st.sidebar.slider("Initial Concentration (C₀, mg/mL)", 1.0, 50.0, 20.0)
-k = st.sidebar.slider("Adsorption Rate Constant (k, 1/min)", 0.01, 5.0, 1.0)
+k = st.sidebar.slider("Lumped Parameter Rate Constant (k, 1/min)", 0.01, 5.0, 1.0)
 KL = st.sidebar.slider("Langmuir Constant (KL, mL/mg)", 0.5, 100.0, 10.0)
 qmax = st.sidebar.slider("Maximum Resin Capacity (qmax, mg/mL resin)", 10.0, 200.0, 65.0)
 t_end = st.sidebar.slider("Simulation Time (min)", 5, 30, 20)
