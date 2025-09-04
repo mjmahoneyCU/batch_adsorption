@@ -36,8 +36,8 @@ V_solution = 5.0  # mL
 st.sidebar.header("Adjust Simulation Parameters")
 c0 = st.sidebar.slider("Initial Concentration (C₀, mg/mL)", 1.0, 50.0, 20.0)
 k = st.sidebar.slider("Adsorption Rate Constant (k, 1/min)", 0.01, 5.0, 1.0)
-KL = st.sidebar.slider("Langmuir Constant (K-Langmuir, mL/mg)", 0.001, 1.0, 0.15, step=0.001, format="%.3f")
-qmax = st.sidebar.slider("Maximum Resin Capacity (qmax, mg/mL resin)", 10.0, 100.0, 65.0)
+KL = st.sidebar.slider("Langmuir Constant (K-Langmuir, mL/mg)", 0.5, 100.0, 10.0)
+qmax = st.sidebar.slider("Maximum Resin Capacity (qmax, mg/mL resin)", 10.0, 200.0, 65.0)
 t_end = st.sidebar.slider("Simulation Time (min)", 5, 30, 20)
 
 # --- DEFINE MODEL EQUATIONS ---
@@ -71,7 +71,7 @@ st.write(f"**Equilibrium Resin Loading**: {q[-1]:.2f} mg/mL resin")
 # --- CONCEPTUAL QUESTIONS ---
 with st.expander("🧠 Making Sense of the Simulation", expanded=False):
     st.markdown("""
-### 🔹 1. What factors control how fast the system reaches equilibrium?
+### 1. What factors control how fast the system reaches equilibrium?
 **Try this:**  
 Set `k = 0.2`, run the simulation. Then increase to `k = 2.0`.  
 Keep `C₀ = 20`, `qmax = 65`, `KL = 0.15`.
@@ -81,7 +81,7 @@ Keep `C₀ = 20`, `qmax = 65`, `KL = 0.15`.
 
 ---
 
-### 🔹 2. How does initial concentration (C₀) affect the final resin loading and equilibrium concentration?
+### 2. How does initial concentration (C₀) affect the final resin loading and equilibrium concentration?
 **Try this:**  
 Run simulations with `C₀ = 5`, `20`, and `40`. Keep `qmax`, `k`, and `KL` constant.
 
@@ -90,7 +90,7 @@ Run simulations with `C₀ = 5`, `20`, and `40`. Keep `qmax`, `k`, and `KL` cons
 
 ---
 
-### 🔹 3. How does resin capacity (qmax) influence the system’s behavior?
+### 3. How does resin capacity (qmax) influence the system’s behavior?
 **Try this:**  
 Use `qmax = 20`, `65`, and `100` with fixed `C₀ = 20`.
 
@@ -99,7 +99,7 @@ Use `qmax = 20`, `65`, and `100` with fixed `C₀ = 20`.
 
 ---
 
-### 🔹 4. What does the Langmuir constant (KL) tell us about binding affinity?
+### 4. What does the Langmuir constant (KL) tell us about binding affinity?
 **Try this:**  
 Run with `KL = 0.01`, `0.1`, and `0.5`. Keep `C₀ = 20`, `qmax = 65`.
 
@@ -108,7 +108,7 @@ Run with `KL = 0.01`, `0.1`, and `0.5`. Keep `C₀ = 20`, `qmax = 65`.
 
 ---
 
-### 🔹 5. Is adsorption limited by capacity or affinity?
+### 5. Is adsorption limited by capacity or affinity?
 **Try this:**  
 - Case 1: `C₀ = 5`, `KL = 0.5`  
 - Case 2: `C₀ = 5`, `KL = 0.05`  
@@ -119,7 +119,7 @@ Hold other values constant.
 
 ---
 
-### 🔹 6. How does simulation time affect the results?
+### 6. How does simulation time affect the results?
 **Try this:**  
 Run with `t_end = 5`, `15`, and `30` minutes for the same parameter set.
 
@@ -128,7 +128,7 @@ Run with `t_end = 5`, `15`, and `30` minutes for the same parameter set.
 
 ---
 
-### 🔹 7. What parameter set leads to the most complete removal of protein?
+### 7. What parameter set leads to the most complete removal of protein?
 **Challenge:**  
 Try to reduce final liquid concentration below `1 mg/mL`.
 
